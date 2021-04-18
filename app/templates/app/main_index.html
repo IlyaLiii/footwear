@@ -1,0 +1,21 @@
+<!--{% load static %}-->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'app/css/style.css' %}">
+    <title>List of snikers</title>
+</head>
+<body>
+
+{% if latest_snikers_list %}
+    <ul>
+    {% for sniker in latest_snikers_list %}
+        <li><a href="{% url 'app:detail' sniker.id %}">{{ sniker.full_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+</body>
+</html>
